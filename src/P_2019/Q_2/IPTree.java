@@ -67,4 +67,37 @@ public class IPTree {
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
+
+    public void getLevel(String ipClass,String ipAddress){
+        int level=0;
+        switch (ipClass){
+            case "A":
+                level=Level(root.ClassA,Integer.parseInt(ipAddress.split("\\.")[0]),level);
+
+                break;
+            case "B":
+                level=Level(root.ClassB,Integer.parseInt(ipAddress.split("\\.")[0]),level);
+                break;
+            case "C":
+                level=Level(root.ClassC,Integer.parseInt(ipAddress.split("\\.")[0]),level);
+                break;
+
+
+        }
+        System.out.println(level);
+    }
+    public  int Level(IPNode root,int data,int level){
+        if(root==null){
+            return 0;
+        }
+        if(data==Integer.parseInt(root.ipAddress.split("\\.")[0])){
+            return level;
+        }
+        int n=Level(root.left,data,level++);
+        if(n!=0){
+            return n;
+        }
+        n=Level(root.left,data,level++);
+        return n;
+    }
 }

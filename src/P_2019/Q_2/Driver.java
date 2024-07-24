@@ -13,6 +13,7 @@ public class Driver {
         }
 
         tree.preOrder();
+        tree.getLevel(findClass("10.50.40.13"),"10.50.40.13");
     }
 
     public static String findClass(String address){
