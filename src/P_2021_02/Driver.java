@@ -14,10 +14,21 @@ public class Driver {
             CharacterNode data=new CharacterNode(codes[i],letters[i]);
             MoseDOM.insertCharacter(data);
 
-
         }
 
        MoseDOM.inOrderTraversal();
+        String s="..../..-/..-./---/--.";
+        decrypted(s,MoseDOM);
+
+
+    }
+
+    public static void decrypted(String string,Tree tree){
+        System.out.println("\n Decrypted Message");
+        String [] array=string.split("/");
+        for (String s:array){
+             tree.searchString(s);
+        }
 
     }
 }

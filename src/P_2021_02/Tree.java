@@ -36,4 +36,18 @@ class Tree {
             inorder(root.right);
         }
     }
+
+    public void searchString(String s){
+        search(this.root,s);
+    }
+    private  void search(TreeNode root,String s){
+        if(root!=null){
+            if(root.data.morseCode.equals(s)){
+                System.out.print(root.data.character);
+            }else{
+                search(root.left,s);
+                search(root.right,s);
+            }
+        }
+    }
 }
